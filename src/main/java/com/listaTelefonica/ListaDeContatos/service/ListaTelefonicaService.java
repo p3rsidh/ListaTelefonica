@@ -18,23 +18,24 @@ public class ListaTelefonicaService {
         return listaTelefonicaRepository.findAll();
     }
 
-    public Optional<ContatoModel> buscarTelefone(String telefone){
-        return  listaTelefonicaRepository.findById(telefone);
+    public Optional<ContatoModel> buscarTelefone(Long codigoCliente){
+        return  listaTelefonicaRepository.findById(codigoCliente);
     }
 
     public ContatoModel adicionarContato(ContatoModel contatoModel){
 
         contatoModel.getNome();
         contatoModel.getNumeroDeTelefone();
+        contatoModel.getCodigoCliente();
 
         return listaTelefonicaRepository.save(contatoModel);
     }
 
-    public void deletarContato(String telefone){
-        listaTelefonicaRepository.deleteById(telefone);
+    public void deletarContato(Long codigoCliente){
+        listaTelefonicaRepository.deleteById(codigoCliente);
     }
 
-    public ContatoModel deletarContato(ContatoModel contato){
+    public ContatoModel editarContato(ContatoModel contato){
         contato.getNome();
         contato.getNumeroDeTelefone();
 
