@@ -48,4 +48,9 @@ public class ListaTelefonicaController {
         return listaTelefonicaService.editarContato(codigoCliente);
     }
 
+    @DeleteMapping(path = "/contatos")
+    public String limparLista(){
+        listaTelefonicaService.limparLista();
+        return "Sua lista esta limpa";
+    }
 }

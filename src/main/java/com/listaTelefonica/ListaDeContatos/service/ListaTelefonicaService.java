@@ -14,15 +14,15 @@ public class ListaTelefonicaService {
     @Autowired
     private ListaTelefonicaRepository listaTelefonicaRepository;
 
-    public List<ContatoModel> buscarContatos(){
+    public List<ContatoModel> buscarContatos() {
         return listaTelefonicaRepository.findAll();
     }
 
-    public Optional<ContatoModel> buscarTelefone(Long codigoCliente){
-        return  listaTelefonicaRepository.findById(codigoCliente);
+    public Optional<ContatoModel> buscarTelefone(Long codigoCliente) {
+        return listaTelefonicaRepository.findById(codigoCliente);
     }
 
-    public ContatoModel adicionarContato(ContatoModel contatoModel){
+    public ContatoModel adicionarContato(ContatoModel contatoModel) {
 
         contatoModel.getNome();
         contatoModel.getNumeroDeTelefone();
@@ -31,15 +31,20 @@ public class ListaTelefonicaService {
         return listaTelefonicaRepository.save(contatoModel);
     }
 
-    public void deletarContato(Long codigoCliente){
+    public void deletarContato(Long codigoCliente) {
         listaTelefonicaRepository.deleteById(codigoCliente);
     }
 
-    public ContatoModel editarContato(ContatoModel contato){
+    public ContatoModel editarContato(ContatoModel contato) {
         contato.getCodigoCliente();
         contato.getNome();
         contato.getNumeroDeTelefone();
 
         return listaTelefonicaRepository.save(contato);
+    }
+
+    public void limparLista() {
+        listaTelefonicaRepository.deleteAll();
+
     }
 }
