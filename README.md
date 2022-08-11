@@ -1,4 +1,4 @@
-# 
+# LISTA DE EXERCÍCIO SPRING
 Funcionalidades:
 1- Exibir de todos os contatos
 2- Exibir de um contato específico
