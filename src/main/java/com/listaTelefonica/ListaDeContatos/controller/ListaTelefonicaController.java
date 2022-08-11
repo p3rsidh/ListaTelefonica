@@ -20,7 +20,7 @@ public class ListaTelefonicaController {
         return listaTelefonicaService.buscarContatos();
     }
 
-    @GetMapping(path = "/contatos/{codigo}")
+    @GetMapping(path = "/contatos/{codigoCliente}")
     public Optional<ContatoModel> buscarContatos(@PathVariable Long codigoCliente){
 
         return listaTelefonicaService.buscarTelefone(codigoCliente);
@@ -35,6 +35,17 @@ public class ListaTelefonicaController {
         contatoModel.getNome();
 
         return listaTelefonicaService.adicionarContato(contatoModel);
+    }
+
+    @DeleteMapping(path = "/contatos/{codigoCliente}")
+    public  List<ContatoModel> deletarContato(@PathVariable Long codigoCliente){
+        listaTelefonicaService.deletarContato(codigoCliente);
+        return listaTelefonicaService.buscarContatos();
+    }
+
+    @PutMapping(path = "/contatos/{codigoCliente}")
+    public ContatoModel editarContato(@RequestBody ContatoModel codigoCliente){
+        return listaTelefonicaService.editarContato(codigoCliente);
     }
 
 }

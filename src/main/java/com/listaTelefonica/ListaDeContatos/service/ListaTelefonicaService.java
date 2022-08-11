@@ -36,6 +36,7 @@ public class ListaTelefonicaService {
     }
 
     public ContatoModel editarContato(ContatoModel contato){
+        contato.getCodigoCliente();
         contato.getNome();
         contato.getNumeroDeTelefone();
 
